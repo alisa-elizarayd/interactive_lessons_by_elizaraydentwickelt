@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ist Reiseblogger wirklich ein Traumjob? — Interactive Lexical Worksheet</title>
+<style>
+:root{
+  --bg:#f4f5f7; --card:#fff; --ink:#20242b; --muted:#68707c;
+  --accent:#3157d5; --accent2:#eef2ff; --good:#18794e; --goodbg:#eaf7f0;
+  --bad:#b42318; --badbg:#fff0ee; --line:#dfe3e8; --dark:#1e2430;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}
+.container{max-width:1050px;margin:auto;padding:28px 18px 60px}
+header{background:var(--dark);color:white;border-radius:22px;padding:30px;margin-bottom:18px}
+h1{font-size:clamp(27px,4vw,42px);line-height:1.08;margin:0 0 8px}
+.subtitle{color:#cbd1dc;margin:0}
+.badge{display:inline-block;background:#fff;color:var(--dark);border-radius:999px;padding:5px 10px;font-size:12px;font-weight:700;margin-bottom:15px}
+.progress-wrap{position:sticky;top:0;z-index:10;background:rgba(244,245,247,.94);backdrop-filter:blur(8px);padding:10px 0}
+.progress{height:8px;background:#dfe3e8;border-radius:99px;overflow:hidden}
+.progress-bar{height:100%;width:0;background:var(--accent);transition:.25s}
+.progress-text{font-size:12px;color:var(--muted);margin-top:4px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;margin:16px 0;box-shadow:0 2px 8px rgba(20,30,50,.035)}
+.step{display:flex;gap:12px;align-items:flex-start}
+.num{flex:0 0 34px;height:34px;border-radius:50%;background:var(--dark);color:white;display:grid;place-items:center;font-weight:800}
+h2{margin:0 0 7px;font-size:23px}
+h3{margin:20px 0 8px;font-size:17px}
+.instruction{color:var(--muted);margin-top:0}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(max-width:700px){.grid{grid-template-columns:1fr}}
+textarea,input,select{font:inherit;border:1px solid var(--line);border-radius:10px;padding:10px;width:100%;background:white;color:var(--ink)}
+textarea{min-height:82px;resize:vertical}
+button{font:inherit;font-weight:700;border:0;border-radius:10px;padding:10px 14px;cursor:pointer;background:var(--accent);color:white}
+button.secondary{background:#edf0f4;color:var(--ink)}
+button.ghost{background:transparent;color:var(--accent);border:1px solid #bfc8ef}
+button:active{transform:translateY(1px)}
+.choice-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.choice{border:1px solid var(--line);padding:13px;border-radius:12px;cursor:pointer;background:white}
+.choice.selected{border-color:var(--accent);background:var(--accent2)}
+.feedback{display:none;margin-top:10px;padding:10px 12px;border-radius:10px;font-size:14px}
+.feedback.good{display:block;background:var(--goodbg);color:var(--good)}
+.feedback.bad{display:block;background:var(--badbg);color:var(--bad)}
+table{width:100%;border-collapse:collapse;margin:10px 0}
+th,td{border-bottom:1px solid var(--line);padding:9px;text-align:left;vertical-align:top}
+th{font-size:13px;color:var(--muted)}
+.chunk-input{max-width:260px}
+.reveal{color:var(--accent);cursor:pointer;font-weight:700}
+.answer{display:none;color:var(--good);font-weight:700}
+.pill{display:inline-block;background:#f0f2f5;padding:5px 9px;border-radius:999px;margin:3px;font-size:13px}
+.wordbank{background:#fafbfc;border:1px dashed #cdd3dc;padding:12px;border-radius:12px}
+.challenge{background:var(--accent2);border:1px solid #d8def9;border-radius:14px;padding:16px}
+.timer{font-size:38px;font-variant-numeric:tabular-nums;font-weight:800;letter-spacing:1px}
+.prompt{font-size:20px;font-weight:750;margin:10px 0}
+.score{font-weight:800}
+.small{font-size:13px;color:var(--muted)}
+details summary{cursor:pointer;font-weight:750}
+footer{text-align:center;color:var(--muted);font-size:12px;margin-top:25px}
+hr{border:0;border-top:1px solid var(--line);margin:22px 0}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <span class="badge">B1–B2 · Lexical + Communicative</span>
+  <h1>Ist Reiseblogger wirklich ein Traumjob?</h1>
+  <p class="subtitle">Authentisches DW-Video · 5:01 · lexical noticing → expansion → retrieval → speaking</p>
+</header>
+
+<div class="progress-wrap">
+  <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+  <div class="progress-text" id="progressText">0% completed</div>
+</div>
+
+<section class="card" data-step>
+<div class="step"><div class="num">1</div><div style="flex:1">
+<h2>Activate: Traumjob oder Realität?</h2>
+<p class="instruction"><b>Nur den Titel anschauen.</b> Sammle zuerst deine Ideen. Noch nicht googeln.</p>
+<div class="grid">
+<div><h3>Tätigkeiten</h3><textarea placeholder="z. B. Videos drehen …"></textarea></div>
+<div><h3>Skills</h3><textarea placeholder="z. B. kreativ sein …"></textarea></div>
+<div><h3>Vorteile</h3><textarea placeholder="z. B. reisen …"></textarea></div>
+<div><h3>Herausforderungen</h3><textarea placeholder="z. B. wenig Privatsphäre …"></textarea></div>
+</div>
+<h3>Priorität</h3>
+<p>Welche <b>drei</b> Dinge wären für dich persönlich am wichtigsten, wenn du Reiseblogger/in wärst? Warum?</p>
+<textarea placeholder="Meine drei wichtigsten Punkte …"></textarea>
+</div></div>
+</section>
+
+<section class="card" data-step>
+<div class="step"><div class="num">2</div><div style="flex:1">
+<h2>First viewing: Gist</h2>
+<p class="instruction">Schau das Video einmal komplett. Du musst nicht jedes Wort verstehen. Achte nur auf die große Geschichte.</p>
+<div class="challenge">
+<b>Während des Videos:</b>
+<p>Notiere jeweils 2–3 Punkte.</p>
+<div class="grid">
+<div><b>👍 Was macht den Job attraktiv?</b><textarea placeholder="…"></textarea></div>
+<div><b>👎 Was macht ihn schwierig?</b><textarea placeholder="…"></textarea></div>
+</div>
+<p><b>🤔 Was hat dich überrascht?</b></p>
+<textarea placeholder="Mich hat überrascht, dass …"></textarea>
+</div>
+</div></div>
+</section>
+
+<section class="card" data-step>
+<div class="step"><div class="num">3</div><div style="flex:1">
+<h2>React — don’t analyse yet</h2>
+<p class="instruction">Sprich zuerst frei. Nutze deine Notizen aus dem Video.</p>
+<div class="choice-grid" id="reactChoices">
+<div class="choice" onclick="choose(this)">Für mich klingt das eindeutig nach einem Traumjob.</div>
+<div class="choice" onclick="choose(this)">Die Vorteile und Nachteile halten sich ungefähr die Waage.</div>
+<div class="choice" onclick="choose(this)">Die Realität klingt schwieriger, als ich erwartet habe.</div>
+<div class="choice" onclick="choose(this)">Ich würde diesen Job wahrscheinlich nicht machen.</div>
+</div>
+<p style="margin-top:12px"><b>Begründe deine Reaktion in 30–60 Sekunden.</b></p>
+<textarea placeholder="Ich denke, dass … / Einerseits … andererseits …"></textarea>
+</div></div>
+</section>
+
+<section class="card" data-step>
+<div class="step"><div class="num">4</div><div style="flex:1">
+<h2>Second viewing: Lexical Detective</h2>
+<p class="instruction">Schau noch einmal. Höre nicht nach einzelnen Wörtern, sondern nach <b>fertigen Wortgruppen</b>. Ergänze, was du hörst.</p>
+<table>
+<thead><tr><th>Chunk aus dem Video</th><th>Deine Ergänzung</th><th>Check</th></tr></thead>
+<tbody>
+<tr><td>die Schönheit der Insel …</td><td><input id="a1" class="chunk-input" placeholder="…"></td><td><button class="ghost" onclick="check('a1','einfangen','f1')">Check</button></td></tr>
+<tr><td>jemanden … Reisen begeistern</td><td><input id="a2" class="chunk-input" placeholder="…"></td><td><button class="ghost" onclick="check('a2','fürs','f2')">Check</button></td></tr>
+<tr><td>hinter den …</td><td><input id="a3" class="chunk-input" placeholder="…"></td><td><button class="ghost" onclick="check('a3','Kulissen','f3')">Check</button></td></tr>
+<tr><td>etwas in den … bekommen</td><td><input id="a4" class="chunk-input" placeholder="…"></td><td><button class="ghost" onclick="check('a4','Griff','f4')">Check</button></td></tr>
+<tr><td>Vor- und …</td><td><input id="a5" class="chunk-input" placeholder="…"></td><td><button class="ghost" onclick="check('a5','Nachteile','f5')">Check</button></td></tr>
+<tr><td>sich keinen besseren … wünschen können</td><td><input id="a6" class="chunk-input" placeholder="…"></td><td><button class="ghost" onclick="check('a6','Job','f6')">Check</button></td></tr>
+</tbody>
+</table>
+<div id="f1" class="feedback"></div><div id="f2" class="feedback"></div><div id="f3" class="feedback"></div>
+<div id="f4" class="feedback"></div><div id="f5" class="feedback"></div><div id="f6" class="feedback"></div>
+<p class="small">Hinweis: Bei „sich keinen besseren … wünschen können“ sind je nach Kontext auch andere passende Nomen möglich. Hier geht es um den Chunk aus dem Video.</p>
+</div></div>
+</section>
+
+<section class="card" data-step>
+<div class="step"><div class="num">5</div><div style="flex:1">
+<h2>Deepen the chunks</h2>
+<p class="instruction">Jetzt nicht mehr nur: „Was bedeutet das?“ — wir untersuchen <b>meaning, collocation, pattern und use</b>.</p>
+
+<h3>A · etwas in den Griff bekommen</h3>
+<p>Was kann man in den Griff bekommen? Kreuze an, was natürlich klingt.</p>
+<div class="choice-grid">
+<div class="choice" onclick="togglePill(this)">Stress</div><div class="choice" onclick="togglePill(this)">Zeitmanagement</div>
+<div class="choice" onclick="togglePill(this)">eine schwierige Situation</div><div class="choice" onclick="togglePill(this)">ein Problem</div>
+</div>
+<p><b>Semantic precision:</b> Was ist der Unterschied?</p>
+<textarea placeholder="„ein Problem lösen“ bedeutet …, während „etwas in den Griff bekommen“ eher …"></textarea>
+
+<h3>B · jemanden für etwas begeistern</h3>
+<p>Erweitere den Chunk. Ergänze mindestens 4 eigene Kombinationen:</p>
+<div class="wordbank"><span class="pill">jemanden für … begeistern</span></div>
+<textarea placeholder="jemanden für Musik begeistern; jemanden für …"></textarea>
+<p>Jetzt personalisieren: <b>Wofür würdest du gern andere Menschen begeistern?</b></p>
+<textarea placeholder="Ich würde andere gern für … begeistern, weil …"></textarea>
+
+<h3>C · hinter den Kulissen</h3>
+<p>Welche Kontexte passen?</p>
+<div class="choice-grid">
+<div class="choice" onclick="togglePill(this)">Filmproduktion</div><div class="choice" onclick="togglePill(this)">Social Media</div>
+<div class="choice" onclick="togglePill(this)">Unternehmen</div><div class="choice" onclick="togglePill(this)">Studium / Arbeit</div>
+</div>
+<p>Formuliere einen persönlichen Satz.</p>
+<textarea placeholder="Hinter den Kulissen meines Studiums / meiner Arbeit …"></textarea>
+
+<h3>D · sich keinen besseren … wünschen können</h3>
+<p>Baue das Pattern mit mindestens 3 Nomen:</p>
+<textarea placeholder="Ich könnte mir keinen besseren Urlaub / … wünschen."></textarea>
+</div></div>
+</section>
+
+<section class="card" data-step>
+<div class="step"><div class="num">6</div><div style="flex:1">
+<h2>Collocation Challenge</h2>
+<p class="instruction">Verbinde Nomen und Verben so, dass möglichst natürliche Kollokationen entstehen. Einige Kombinationen sind möglich, aber wähle die, die du selbst wirklich verwenden würdest.</p>
+<table>
+<thead><tr><th>Bereich</th><th>Deine Kollokationen</th></tr></thead>
+<tbody>
+<tr><td><b>einen Job</b></td><td><input placeholder="z. B. einen Job ausüben …"></td></tr>
+<tr><td><b>eine Reise</b></td><td><input placeholder="z. B. eine Reise antreten …"></td></tr>
+<tr><td><b>ein Problem</b></td><td><input placeholder="z. B. ein Problem in den Griff bekommen …"></td></tr>
+<tr><td><b>Content</b></td><td><input placeholder="z. B. Content produzieren …"></td></tr>
+</tbody>
+</table>
+<p><b>Challenge:</b> Verwende drei deiner Kollokationen in einem zusammenhängenden Mini-Text über den Beruf Reiseblogger.</p>
+<textarea placeholder="Ein Reiseblogger muss …"></textarea>
+</div></div>
+</section>
+
+<section class="card" data-step>
+<div class="step"><div class="num">7</div><div style="flex:1">
+<h2>Lexical Upgrade</h2>
+<p class="instruction">Mach die Aussage präziser und natürlicher. Versuche, einen Chunk aus dem Video oder eine starke Kollokation zu verwenden.</p>
+<div class="challenge">
+<p><b>1.</b> Der Job ist schwierig, weil man viele Probleme hat.</p>
+<textarea placeholder="B1–B2 Upgrade …"></textarea>
+<p><b>2.</b> Viele Menschen interessieren sich für Reisen.</p>
+<textarea placeholder="B1–B2 Upgrade …"></textarea>
+<p><b>3.</b> Man sieht nicht alles, was bei einem Reiseblog passiert.</p>
+<textarea placeholder="B1–B2 Upgrade …"></textarea>
+<p><b>4.</b> Der Job hat gute und schlechte Seiten.</p>
+<textarea placeholder="B1–B2 Upgrade …"></textarea>
+</div>
+<details style="margin-top:12px">
+<summary>💡 Possible language — erst nach deinem Versuch öffnen</summary>
+<div class="wordbank" style="margin-top:10px">
+<p><b>etwas in den Griff bekommen</b> · <b>jemanden für etwas begeistern</b> · <b>hinter den Kulissen</b> · <b>Vor- und Nachteile</b> · <b>etwas mit sich bringen</b> · <b>etwas einfangen</b></p>
+</div>
+</details>
+</div></div>
+</section>
+
+<section class="card" data-step>
+<div class="step"><div class="num">8</div><div style="flex:1">
+<h2>Speaking: Traumjob oder nicht?</h2>
+<p class="instruction">Jetzt kommt die eigentliche kommunikative Aufgabe. Sprich zuerst frei und benutze danach bewusst deine neuen chunks.</p>
+<div class="challenge">
+<p><b>Situation:</b> Du bekommst morgen das Angebot, als Reiseblogger/in zu arbeiten.</p>
+<ul>
+<li>Du kannst viel reisen.</li>
+<li>Du kannst deine Arbeit relativ selbstständig organisieren.</li>
+<li>Du musst ständig Content produzieren.</li>
+<li>Arbeit und Privatleben können sich vermischen.</li>
+<li>Du hast weniger Privatsphäre.</li>
+<li>Dein Einkommen ist möglicherweise nicht immer sicher.</li>
+</ul>
+<p class="prompt">Würdest du den Job annehmen?</p>
+<p><b>Round 1:</b> Begründe deine Entscheidung mit mindestens 3 Argumenten.</p>
+<textarea placeholder="Ich würde den Job …, weil …"></textarea>
+<p><b>Round 2 — complication:</b> Du musst dafür deinen jetzigen Beruf / dein Studium aufgeben. Ändert das deine Meinung?</p>
+<textarea placeholder="Das ändert meine Meinung, weil … / Trotzdem …"></textarea>
+<p><b>Round 3 — persuade:</b> Überzeuge deinen Gesprächspartner. Verwende mindestens <b>4</b> chunks aus dem Video.</p>
+<textarea placeholder="Andererseits … / Man darf nicht vergessen, dass … / Für mich überwiegen …"></textarea>
+</div>
+</div></div>
+</section>
+
+<section class="card" data-step>
+<div class="step"><div class="num">9</div><div style="flex:1">
+<h2>30-second lexical retell</h2>
+<p class="instruction">Letzter Durchgang: Erkläre deine Meinung noch einmal — diesmal möglichst präzise und ohne dieselben einfachen Wörter zu wiederholen.</p>
+<div class="wordbank">
+<b>Try to use at least 4:</b><br>
+<span class="pill">in den Griff bekommen</span>
+<span class="pill">für etwas begeistern</span>
+<span class="pill">hinter den Kulissen</span>
+<span class="pill">Vor- und Nachteile</span>
+<span class="pill">sich keinen besseren Job wünschen</span>
+<span class="pill">etwas einfangen</span>
+</div>
+<textarea placeholder="30-Sekunden-Version …"></textarea>
+<p><b>Mein Take-away:</b> Welchen Ausdruck möchtest du wirklich in deinen aktiven Wortschatz übernehmen?</p>
+<input placeholder="Mein Ausdruck: …">
+</div></div>
+</section>
+
+<section class="card">
+<h2>⏱ Optional: Speaking Timer</h2>
+<p class="small">Nutze ihn für die 30–60-Sekunden- und 2-Minuten-Speaking-Runden.</p>
+<div class="timer" id="timer">01:00</div>
+<button onclick="startTimer(60)">1:00</button>
+<button onclick="startTimer(120)">2:00</button>
+<button class="secondary" onclick="stopTimer()">Stop</button>
+<button class="secondary" onclick="resetTimer()">Reset</button>
+</section>
+
+<section class="card">
+<h2>🧠 Teacher / Student Notes</h2>
+<p class="small">Für online one-to-one: сюда можно вписывать emerging language, errors и useful upgrades прямо во время разговора.</p>
+<textarea id="notes" style="min-height:130px" placeholder="Good language / Upgrade / New collocations / Follow-up …"></textarea>
+</section>
+
+<footer>
+Authentic input → noticing → lexical expansion → retrieval → personalised communication
+</footer>
+</div>
+
+<script>
+function choose(el){
+  [...el.parentElement.children].forEach(x=>x.classList.remove('selected'));
+  el.classList.add('selected');
+  updateProgress();
+}
+function togglePill(el){el.classList.toggle('selected'); updateProgress();}
+function check(id, answer, fid){
+  const input=document.getElementById(id), f=document.getElementById(fid);
+  const val=input.value.trim().toLowerCase().replace(/[.,!?]/g,'');
+  const ok=val===answer.toLowerCase() || (id==='a2' && val.includes('fürs'));
+  f.className='feedback '+(ok?'good':'bad');
+  f.textContent=ok?'✓ Genau — guter Chunk!':'Noch einmal hören und auf die ganze Wortgruppe achten.';
+  updateProgress();
+}
+let remaining=60, interval=null;
+function renderTimer(){
+  const m=String(Math.floor(remaining/60)).padStart(2,'0');
+  const s=String(remaining%60).padStart(2,'0');
+  document.getElementById('timer').textContent=m+':'+s;
+}
+function startTimer(sec){
+  clearInterval(interval); remaining=sec; renderTimer();
+  interval=setInterval(()=>{remaining--;renderTimer();if(remaining<=0)clearInterval(interval)},1000);
+}
+function stopTimer(){clearInterval(interval)}
+function resetTimer(){clearInterval(interval);remaining=60;renderTimer()}
+function updateProgress(){
+  const steps=[...document.querySelectorAll('[data-step]')];
+  let done=0;
+  steps.forEach(s=>{
+    const fields=[...s.querySelectorAll('input,textarea')];
+    const hasInput=fields.some(x=>x.value.trim());
+    const selected=s.querySelector('.selected');
+    const feedback=s.querySelector('.feedback.good');
+    if(hasInput||selected||feedback) done++;
+  });
+  const pct=Math.round(done/steps.length*100);
+  document.getElementById('progressBar').style.width=pct+'%';
+  document.getElementById('progressText').textContent=pct+'% completed · '+done+'/'+steps.length+' sections started';
+}
+document.addEventListener('input',updateProgress);
+document.addEventListener('change',updateProgress);
+renderTimer(); updateProgress();
+</script>
+</body>
+</html>
